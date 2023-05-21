@@ -1,1 +1,1 @@
-# Script Virtual Host Apache2
+# Virtual Host - Apache2
