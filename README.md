@@ -5,10 +5,6 @@ installation and configuration of server web apache2
 in another machine is done through the use of ssh and
 ansible
 
-### __`NOTE`__ :
-Ansible can be used by `only` Linux distributions or 
-MacOS ``NOT Microsoft Windows``. So you need computer under Linux the following of this project
-
 &nbsp;
 ## Setup 1 : Clone this repository
 ```sh
@@ -17,7 +13,7 @@ git clone https://github.com/Daris02/virtualhost-apache2-sys1.git
 
 &nbsp;
 ## Setup 2 : Install  Ansible
-Use doc in this link : [install ansible](https://ansible.org/install)
+Use doc in this link : [install ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 &nbsp;
 ## Setup 3 : Launch Ansible
@@ -34,9 +30,10 @@ ansible all -i inventory.yml -m ping
 ```sh
 ansible-playbook -i inventory.yml playbook.yml --ask-become-pass -k
 ```
--i : to indicate the inventory 
+NOTE
+>-i : to indicate the inventory 
 
--k : to etablish the SSH connection
+>-k : to etablish the SSH connection
 
---ask-become-pass : to get the authorization like root (sudo) while the launch all playbook
+>--ask-become-pass : to get the authorization like root (sudo) while the launch all playbook
 
