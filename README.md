@@ -44,5 +44,3 @@ __NOTE__
 >--ask-become-pass : to get the authorization like root (sudo) while the launch all playbook
 
 ## Final result
-
-[ansiblePlaybook.webm](https://github.com/Daris02/virtualhost-apache2-sys1/assets/103503966/36e3ce90-a75d-4eb6-aae6-d99c802413ae)
