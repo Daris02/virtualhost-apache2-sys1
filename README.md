@@ -22,13 +22,15 @@ Use doc in this link : [install ansible](https://docs.ansible.com/ansible/latest
 
 ![alt-img](/image/ssh_connection2.png)
 
-### - Change the IPv4 in `inventory.yml` to your personnal hosts IPv4
+### - Change the `ansible_ssh_host` in _`inventory.yml`_ to your personnal host ip address
+
+![alt-img](/image/inventory.png)
+
 &nbsp;
 ### - Run this command to check your ansible function
 ```sh
 ansible all -i inventory.yml -m ping
 ``` 
-<!-- output: ![alt-img](/image/img1.png) -->
 
 ### - Run this command to launch automate configuration in your machine and enter your password (of host managed)
 ```sh
