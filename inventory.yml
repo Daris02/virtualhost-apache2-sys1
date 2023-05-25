@@ -1,0 +1,9 @@
+all:
+  hosts:
+    192.168.214.129:
+      ansible_connection: local
+  children:
+    webservers:
+      hosts:
+        192.168.214.215:
+        192.168.214.187:
