@@ -27,7 +27,7 @@ Use doc in this link : [install ansible](https://docs.ansible.com/ansible/latest
 ![alt-img](/image/inventory.png)
 
 &nbsp;
-### - Run this command to check your ansible function
+### - Run this command to check your ansible connection ssh
 ```sh
 ansible all -i inventory.yml -m ping
 ``` 
