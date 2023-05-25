@@ -18,7 +18,7 @@ Use doc in this link : [install ansible](https://docs.ansible.com/ansible/latest
 &nbsp;
 ## Setup 3 : Launch Ansible
 
-- Change the IP Address in `inventory.yml` and `playbook.yml` to your personnal hosts IP
+- Change the IPv4 in `inventory.yml` to your personnal hosts IPv4
 
 - Run this command to check your ansible function
 ```sh
