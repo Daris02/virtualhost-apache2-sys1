@@ -43,3 +43,6 @@ __NOTE__
 
 >--ask-become-pass : to get the authorization like root (sudo) while the launch all playbook
 
+[![ansible-playbook](/image/video1.png)](/video/ansiblePlaybook.webm)
+
+[![result-in-kali-linux](/image/video2.png)](/video/ResultKali.webm)
