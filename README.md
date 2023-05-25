@@ -1,22 +1,24 @@
 # __Virtual Host - Ansible - Apache2__
 __Description__
+
 This repository contain the method to automate of
 installation and configuration of server web apache2
 in another machine is done through the use of ssh and
 ansible
 
 &nbsp;
-## Setup 1 : Clone this repository
+## Setup 1 : Install  Ansible
+Use doc in this link [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) and for more doc. 
+
+&nbsp;
+## Setup 2 : Clone this repository
+**If need a template for your project**
 ```sh
 git clone https://github.com/Daris02/virtualhost-apache2-sys1.git
 ```
 
 &nbsp;
-## Setup 2 : Install  Ansible
-Use doc in this link : [install ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
-
-&nbsp;
-## Setup 3 : Launch Playbook
+## Setup 3 : Launch Ansible
 
 - Check ssh connection with your hosts is already exist
 
