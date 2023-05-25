@@ -30,7 +30,7 @@ ansible all -i inventory.yml -m ping
 ```sh
 ansible-playbook -i inventory.yml playbook.yml --ask-become-pass -k
 ```
-NOTE
+__NOTE__
 >-i : to indicate the inventory 
 
 >-k : to etablish the SSH connection
