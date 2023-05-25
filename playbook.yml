@@ -1,59 +1,65 @@
-- hosts: kali_linux
-  user: ray
+- hosts: host2
+  user: root
   become: true
-  vars:
-    site_item: 
-    - prod.sitelocal.com
+  vars_files:
+    - list.yml
+
   tasks:
 
-    - name: Install apache2
-      apt:
-        name: ['apache2']
-        state: present
+    # - name: Install apache2
+    #   apt:
+    #     name: ['apache2']
+    #     state: present
 
-    - name: Start apache2
-      service:
-        name: apache2
-        state: started
-        enabled: yes
+    # - name: Start apache2
+    #   service:
+    #     name: apache2
+    #     state: started
+    #     enabled: yes
 
     - name: Create web root directory
       file:
-        path: /var/www/{{site_item}}
+        path: /var/www/{{ item }}
         state: directory
         mode: 0755
+      with_items: '{{ site_name }}'
 
-    - name: Copy custom index.html file
+    - name: Create index.html file of site_name
       copy:
         src: index.html
-        dest: /var/www/{{ site_item }}/index.html
+        dest: /var/www/{{ item }}/index.html
         owner: root
         group: root
         mode: 0644
+      with_items: '{{ site_name }}'
 
-    - name: Edit index.html of {{ site_item }}
+    - name: Edit index.html of site_name
       lineinfile:
-        dest: /var/www/{{ site_item }}/index.html
+        dest: /var/www/{{ item }}/index.html
         insertafter: <body>
-        line: '<h1>Welcome {{ site_item }} </h1>'
+        line: '<h1>Welcome {{ item }} </h1>'
+      with_items: '{{ site_name }}'
 
-    - name: Config {{ site_item }}.conf
+    - name: Config site_name.conf
       template:
         src: "{{ playbook_dir }}/template.conf.j2"
-        dest: /etc/apache2/sites-available/{{ site_item }}.conf
+        dest: /etc/apache2/sites-available/{{ item }}.conf
+      with_items: '{{ site_name }}'
 
     - name: Link configuration to enabled
       file:
-        src: /etc/apache2/sites-available/{{ site_item }}.conf
-        dest: /etc/apache2/sites-enabled/{{ site_item }}.conf
+        src: /etc/apache2/sites-available/{{ item }}.conf
+        dest: /etc/apache2/sites-enabled/{{ item }}.conf
         state: link
+      with_items: '{{ site_name }}'
 
     - name: Add servername in hosts file
       lineinfile:
         dest: /etc/hosts
-        line: '192.168.214.187  {{ site_item }}'
+        line: '{{ ansible_ssh_host }}  {{ item }}'
+      with_items: '{{ site_name }}'
 
-    - name: Reload apache2
-      service:
-        name: apache2
-        state: reloaded
+    # - name: Reload apache2
+    #   service:
+    #     name: apache2
+    #     state: reloaded
