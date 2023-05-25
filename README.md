@@ -18,11 +18,11 @@ Use doc in this link : [install ansible](https://docs.ansible.com/ansible/latest
 &nbsp;
 ## Setup 3 : Launch Playbook
 
-- Check connection ssh with your hosts is already exist
+- Check ssh connection with your hosts is already exist
 
 ![alt-img](/image/ssh_connection2.png)
 
-- Change the `ansible_ssh_host` in _`inventory.yml`_ to your personnal host ip address
+- Change the `ansible_ssh_host` in _inventory.yml_ to your personnal host ip address
 
 ![alt-img](/image/inventory.png)
 
