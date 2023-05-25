@@ -6,39 +6,37 @@ in another machine is done through the use of ssh and
 ansible
 
 ### __`NOTE`__ :
-Ansible can be used by `only` linux distributions or 
-macOS ``NOT Microsoft Windows``
+Ansible can be used by `only` Linux distributions or 
+MacOS ``NOT Microsoft Windows``. So you need computer under Linux the following of this project
 
-## __Setup 1 : Install  Ansible__
+&nbsp;
+## Setup 1 : Clone this repository
+```sh
+git clone https://github.com/Daris02/virtualhost-apache2-sys1.git
+```
+
+&nbsp;
+## Setup 2 : Install  Ansible
 Use doc in this link : [install ansible](https://ansible.org/install)
 
-## __Setup 2 : Configuration of Ansible__
-1.  Create your personnal inventory in yml or text
-> TXT
-<!-- ```txt
-[control]
-192.168.67.129  ansible_connection=local
+&nbsp;
+## Setup 3 : Launch Ansible
 
-[managed]
-192.168.67.215
-``` -->
+- Change the IP Address in `inventory.yml` and `playbook.yml` to your personnal hosts IP
 
->YAML
-<!-- ```yaml
-all:
-  hosts:
-    192.168.67.129:
-      ansible_connection: local
-  children:
-    webservers:
-      hosts:
-        192.168.67.215:
-``` -->
-
-For verify your ansible is already
+- Run this command to check your ansible function
 ```sh
 ansible all -i inventory.yml -m ping
 ``` 
 <!-- output: ![alt-img](/image/img1.png) -->
 
-2.  Create your personnal playbook to execute all command
+- Run this command to launch automate configuration in your machine and enter your password (of host managed)
+```sh
+ansible-playbook -i inventory.yml playbook.yml --ask-become-pass -k
+```
+-i : to indicate the inventory 
+
+-k : to etablish the SSH connection
+
+--ask-become-pass : to get the authorization like root (sudo) while the launch all playbook
+
