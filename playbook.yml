@@ -1,21 +1,21 @@
-- hosts: host2
-  user: root
+- hosts: host1
+  user: ray
   become: true
   vars_files:
     - list.yml
 
   tasks:
 
-    # - name: Install apache2
-    #   apt:
-    #     name: ['apache2']
-    #     state: present
+    - name: Install apache2
+      apt:
+        name: ['apache2']
+        state: present
 
-    # - name: Start apache2
-    #   service:
-    #     name: apache2
-    #     state: started
-    #     enabled: yes
+    - name: Start apache2
+      service:
+        name: apache2
+        state: started
+        enabled: yes
 
     - name: Create web root directory
       file:
@@ -59,7 +59,7 @@
         line: '{{ ansible_ssh_host }}  {{ item }}'
       with_items: '{{ site_name }}'
 
-    # - name: Reload apache2
-    #   service:
-    #     name: apache2
-    #     state: reloaded
+    - name: Reload apache2
+      service:
+        name: apache2
+        state: reloaded
