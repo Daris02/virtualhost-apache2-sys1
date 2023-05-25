@@ -1,17 +1,31 @@
 ---
-- hosts: kali_linux
+- hosts: host2
   user: ray
-  vars:
-    all_item:
-      src: "{{ playbook_dir }}/list.txt"
+  vars_files:
+    - list.yml
+    # file_content: "{{ lookup('fileglob', 'list.txt', wantList=true) }}"
+
   tasks:
+
+    # - name: Copy list test 
+    #   template:
+    #     src: "{{ playbook_dir }}/list.txt"
+    #     dest: /home/ray/list.txt
+
+    # - name: test1 
+    #   debug: msg="{{ item }}"
+    #   with_items: '{{ site }}'
 
     - name: Config test.conf
       template:
         src: "{{ playbook_dir }}/template_test.conf.j2"
         dest: /home/ray/{{ item }}.conf
-      with_items:
-      - "{{ all_item }}"
+      with_items: '{{ site }}'
+
+    - name: Create directory enabled
+      file:
+        path: /home/ray/enabled
+        state: directory
 
     - name: Link configuration to enabled
       file:
@@ -19,4 +33,4 @@
         dest: /home/ray/enabled/{{ item }}.conf
         state: link
       with_items:
-      - "{{ all_item }}"
+      - "{{ site }}"

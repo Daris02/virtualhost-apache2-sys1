@@ -1,4 +1,6 @@
 ---
-site:
-- test1
-- test2
+site_name:
+- www.hei.school
+- back.hei.school
+- front.hei.school
+- api.hei.school

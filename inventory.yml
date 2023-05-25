@@ -1,12 +1,12 @@
 all:
   hosts:
-    control:
-      ansible_ssh_host: 192.168.214.129
+    control: # Manjaro
+      ansible_ssh_host: 192.168.192.129
       ansible_connection: local
   children:
     webservers:
       hosts:
-        kali_linux:
-          ansible_ssh_host: 192.168.214.187
-        debian11:
-          ansible_ssh_host: 192.168.214.215
+        host1: # Kali linux
+          ansible_ssh_host: 192.168.192.187
+        host2: # Debian 11
+          ansible_ssh_host: 192.168.192.215
