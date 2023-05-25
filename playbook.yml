@@ -1,4 +1,4 @@
-- hosts: 192.168.214.187
+- hosts: kali_linux
   user: ray
   become: true
   vars:
