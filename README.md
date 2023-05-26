@@ -6,7 +6,7 @@ installation and configuration of server web apache2
 in another machine is done through the use of ssh and
 ansible
 
-__Note__
+__Note__:
 This project uses virtual machines, so it manages external machines.
 
 &nbsp;
