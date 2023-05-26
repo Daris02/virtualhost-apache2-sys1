@@ -26,7 +26,24 @@ git clone https://github.com/Daris02/virtualhost-apache2-sys1.git
 
 - Change the `ansible_ssh_host`, `ansible_user` and `ansible_password` in _inventory.yml_ to your personnal host ip address, user and password.
 
-![alt-img](/image/inventory2.png)
+```yml
+all:
+  hosts:
+    control: # Manjaro
+      ansible_ssh_host: 192.168.184.129
+      ansible_connection: local
+  children:
+    managed:
+      hosts:
+        host1: # Kali linux
+          ansible_ssh_host: 192.168.184.187
+          ansible_user: user_name
+          ansible_password: password
+        host2: # Debian 11
+          ansible_ssh_host: 192.168.184.215
+          ansible_user: user_name
+          ansible_password: password
+```
 
 &nbsp;
 - Run this command to check your ansible connection ssh
@@ -58,7 +75,7 @@ Output :
         # ...
         ```
     
-    +   And active the password authemtification host too
+    +   And active the password authemtification in host too
 
         from 
 
@@ -75,7 +92,7 @@ Output :
         # ...
         ```
 &nbsp;
-- Run this command to launch automate configuration in your machine and enter your password (of host managed)
+- Run this command to launch automate configuration in your machine and enter your password (of hosts managed)
 ```sh
 ansible-playbook -i inventory.yml playbook.yml --ask-become-pass
 ```
