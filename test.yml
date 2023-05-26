@@ -1,5 +1,5 @@
 ---
-- hosts: host2
+- hosts: host1
   user: ray
   vars_files:
     - list.yml
@@ -16,21 +16,21 @@
     #   debug: msg="{{ item }}"
     #   with_items: '{{ site }}'
 
-    - name: Config test.conf
-      template:
-        src: "{{ playbook_dir }}/template_test.conf.j2"
-        dest: /home/ray/{{ item }}.conf
-      with_items: '{{ site }}'
+    # - name: Config test.conf
+    #   template:
+    #     src: "{{ playbook_dir }}/template_test.conf.j2"
+    #     dest: /home/ray/{{ item }}.conf
+    #   with_items: '{{ site }}'
 
     - name: Create directory enabled
       file:
         path: /home/ray/enabled
         state: directory
 
-    - name: Link configuration to enabled
-      file:
-        src: /home/ray/{{ item }}.conf
-        dest: /home/ray/enabled/{{ item }}.conf
-        state: link
-      with_items:
-      - "{{ site }}"
+    # - name: Link configuration to enabled
+    #   file:
+    #     src: /home/ray/{{ item }}.conf
+    #     dest: /home/ray/enabled/{{ item }}.conf
+    #     state: link
+    #   with_items:
+    #   - "{{ site }}"
