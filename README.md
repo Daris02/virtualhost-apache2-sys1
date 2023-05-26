@@ -92,7 +92,7 @@ Output :
         # ...
         ```
 &nbsp;
-- Run this command to launch automate configuration in your machine and enter your password (of hosts managed)
+- Run this command to launch `playbook.yml` configuration in your machine and enter your password (of hosts managed)
 ```sh
 ansible-playbook -i inventory.yml playbook.yml --ask-become-pass
 ```
