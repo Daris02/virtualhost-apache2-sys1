@@ -101,6 +101,8 @@ __NOTE__
 
 >-m : module for ansible like function you used
 
+>-k : for autthenticate connection ssh
+
 >--ask-become-pass : to get the authorization like root (sudo) while the launch all playbook
 
 ## Final result
