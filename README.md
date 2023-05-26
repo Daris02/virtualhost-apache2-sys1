@@ -30,17 +30,17 @@ git clone https://github.com/Daris02/virtualhost-apache2-sys1.git
 all:
   hosts:
     control: # Manjaro
-      ansible_ssh_host: 192.168.184.129
+      ansible_ssh_host: 192.168.192.129
       ansible_connection: local
   children:
     managed:
       hosts:
         host1: # Kali linux
-          ansible_ssh_host: 192.168.184.187
+          ansible_ssh_host: 192.168.192.187
           ansible_user: user_name
           ansible_password: password
         host2: # Debian 11
-          ansible_ssh_host: 192.168.184.215
+          ansible_ssh_host: 192.168.192.215
           ansible_user: user_name
           ansible_password: password
 ```
